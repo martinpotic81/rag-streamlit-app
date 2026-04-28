@@ -1,0 +1,12 @@
+
+# najpre u console
+#pip install --upgrade certifi
+#conda install certifi
+#conda update --all
+
+#zatim ide "pip install -r requirements.txt
+
+# u python codu
+# import os
+#import certifi
+#os.environ["SSL_CERT_FILE"] = certifi.where()
