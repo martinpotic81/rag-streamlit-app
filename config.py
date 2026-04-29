@@ -1,4 +1,4 @@
 
 CHROMA_DIR = "./data/chroma_db"
 CHUNK_SIZE = 1000
-CHUNK_OVERLAP = 200
+CHUNK_OVERLAP = 150

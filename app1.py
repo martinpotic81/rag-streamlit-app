@@ -73,12 +73,12 @@ if st.sidebar.button("Delete"):
     st.sidebar.success("Deleted!")
 
 # ---------------- MAIN ---------------- #
-st.title("🐯 Smart HSE Assistant")
+st.title("🤖 Smart HSE Assistant")
 
 # ---------------- 💬 CHAT ---------------- #
 if mode == "💬 Chat":
 
-    st.subheader("💬 Search in your data")
+    st.subheader("💬 Chat with your data")
 
     # Chat memory
     if "messages" not in st.session_state:
@@ -90,7 +90,7 @@ if mode == "💬 Chat":
             st.markdown(msg["content"])
 
     # Chat input (fixed bottom)
-    question = st.chat_input("Ask me something...")
+    question = st.chat_input("Ask something...")
 
     if question:
         # Save user message
@@ -126,13 +126,11 @@ if mode == "💬 Chat":
 
         prompt = ChatPromptTemplate.from_messages([
             ("system",
-             "You are a helpful assistant answering user questions using base knowledge provided in stored documents.\n\n"
-             "Guidelines:\n"
-             "1. Provide summarized answers using the context and use bullets.\n"
-             "2. Include relevant details, numbers, and explanations to give a more meaningful response.\n"
-             "3. Use emoji and other helpful marks to point some facts.\n\n"
-             "4. ONLY use information from the provided context - do not use outside knowledge.\n"
-             "5. If the information is not in the context, say so politely in a professional manner.\n\n"
+             "You are a helpful assistant answering user questions using ONLY the provided context.\n\n"
+             "Rules:\n"
+             "- If answer is not in context, say 'I don't know'\n"
+             "- Be concise but include key facts\n"
+             "- Use bullet points if helpful\n\n"
              "Context:\n{context}"),
             ("human", "{question}")
         ])
